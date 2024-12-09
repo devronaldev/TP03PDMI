@@ -22,6 +22,7 @@ namespace TP03PDMI.Models
         [Required]
         [DisplayName("Localização")]
         public string Locate { get; set; }
-        public virtual Package Package { get; set; }
+
+        public string EventStatusDisplay => Package.GetStatusName(EventStatus);
     }
 }

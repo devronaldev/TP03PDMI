@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TP03PDMI.MainPage">
+             x:Class="TP03PDMI.MainPage"
+             Title="Início">
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Entry MaxLength="16" x:Name="CodeEntry" Placeholder="Insira o Código"/>
+            <Entry MaxLength="16" x:Name="CodeEntry" Placeholder="Insira o Código do pacote"/>
             <Button Text="Procurar" Clicked="OnSearchClicked"/>
         </VerticalStackLayout>
     </ScrollView>

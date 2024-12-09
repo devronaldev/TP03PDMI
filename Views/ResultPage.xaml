@@ -2,8 +2,109 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TP03PDMI.Views.ResultPage"
-             Title="Informações do Pacote">
+             Title="{Binding PackageId}">
     <VerticalStackLayout>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Status-->
+            <Label
+                Text="Status: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="0"
+                Grid.Row="0"/>
+            <Label
+                Text=""
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="1"
+                Grid.Row="0"
+                x:Name="StatusLabel"/>
+            <!--Data de envio-->
+            <Label
+                Text="Data de envio: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="0"
+                Grid.Row="1"/>
+            <Label
+                Text=""
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="1"
+                Grid.Row="1"
+                x:Name="SentAtLabel"/>
+            <!--Estimativa de entrega-->
+            <Label
+                Text="Previsão de Entrega: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="0"
+                Grid.Row="2"/>
+            <Label
+                Text=""
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="1"
+                Grid.Row="2"
+                x:Name="EstimatedDeliveryDateLabel"/>
+            <!--Localização-->
+            <Label
+                Text="Localização: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="0"
+                Grid.Row="3"/>
+            <Label
+                Text=""
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Grid.Column="1"
+                Grid.Row="3"
+                x:Name="LocateLabel"/>
+        </Grid>
+
+        <!-- Lista de Eventos -->
+        <Label Text="Eventos:"
+               FontAttributes="Bold"
+               Margin="0,20,0,10"/>
+        <CollectionView ItemsSource="{Binding Events}"
+                        Margin="0,0,0,20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Text="{Binding Description}"
+                               FontAttributes="Bold"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding EventStatusDisplay}"
+                               Grid.Row="1"/>
+                        <Label Text="{Binding Locate}"
+                               Grid.Row="2"/>
+                        <Label Text="{Binding Date}"
+                               Grid.Row="3"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Voltar" Clicked="OnReturnClicked" x:Name="BtnBack"/>
     </VerticalStackLayout>
 </ContentPage>

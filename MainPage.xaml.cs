@@ -10,11 +10,12 @@ namespace TP03PDMI
         public MainPage()
         {
             InitializeComponent();
-        }
+            AppDbRepository dbRepository = new AppDbRepository();
+        }     
 
         private async void OnSearchClicked(object sender, EventArgs e)
         {
-            string codigo = CodeEntry.Text.ToString();
+            string codigo = CodeEntry.Text.ToString().ToUpper();
             if (string.IsNullOrEmpty(codigo))
             {
                 await DisplayAlert("Código não informado", "Você precisa informar um código válido para prosseguir", "Ok");
@@ -28,48 +29,18 @@ namespace TP03PDMI
             }
 
             CodeEntry.Text = "";
-            using var context = new AppDbContext();
 
+            var context = new AppDbRepository();
             try
             {
-                List<Event> events = new List<Event>
+                var pack = context.Packages.FirstOrDefault(p=> p.PackageId == codigo);
+                if (pack == null)
                 {
-                    new Event
-                    {
-                        Id = 1,
-                        Date = DateTime.Now.AddHours(-1),
-                        Description = "Pedido criado",
-                        EventStatus = DeliveryStatus.Criado,
-                        Locate = "São Paulo",
-                    },
-                    new Event
-                    {
-                        Id = 2,
-                        Date = DateTime.Now.AddMinutes(-5),
-                        Description = "Pedido coletado",
-                        EventStatus = DeliveryStatus.Coletado,
-                        Locate = "São Paulo"
-                    }
-                };
-                Package pack = new Package
-                {
-                    PackageId = "NPC1234567890",
-                    Status = DeliveryStatus.Coletado,
-                    SentAt = DateTime.Now,
-                    EstimatedDeliveryDate = DateTime.Now.AddDays(7),
-                    Locate = "São Paulo",
-                    Events = events
-                };
-                /*var pack = await context.Packages.FirstOrDefaultAsync(p => p.PackageId == codigo);
-
-                if (pack == null) 
-                {
-                    await DisplayAlert("Erro", "Pacote não encontrado. Verifique o código e tente novamente mais tarde.", "Ok");
+                    await DisplayAlert("Pacote Inexistente", $"O pacote com o código: {codigo}, não foi encontrado. Por favor, verificar se foi digitado corretamente.", "Tentar novamente");
                     return;
-                }*/
+                }
 
-                // Se encontrado, redirecione para a próxima página.
-                await Navigation.PushAsync(new ResultPage { BindingContext = pack });
+                await Navigation.PushAsync(new ResultPage {BindingContext = pack});
             }
             catch (Exception ex)
             {
