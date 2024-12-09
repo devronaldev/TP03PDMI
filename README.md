@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
 </head>
 <body>
-  <h1>Rastrea - Aplicação de Rastreamento</h1>
+  <h1>📝Rastrea - Aplicação de Rastreamento</h1>
   <p>Bem-vindo ao <strong>Rastrea</strong>, uma aplicação de rastreamento desenvolvida com .NET MAUI para permitir que os clientes de uma empresa de logística acompanhem o status de seus pacotes em tempo real de forma prática e eficiente. 🚚</p>
 
-  <h2>Autores</h2>
+  <h2>👥Autores</h2>
   <table>
     <thead>
       <tr>
@@ -27,7 +27,7 @@
     </tbody>
   </table>
 
-  <h2>Funcionalidades</h2>
+  <h2>📜Funcionalidades</h2>
   <ul>
     <li>Inserir o código de rastreamento do pacote.</li>
     <li>Exibir informações detalhadas do pacote, incluindo:</li>
@@ -40,20 +40,20 @@
     <li>Navegar entre a página inicial e a página de resultados de forma intuitiva.</li>
   </ul>
 
-  <h2>Tecnologias Utilizadas</h2>
+  <h2>🛠️Tecnologias Utilizadas</h2>
   <ul>
     <li><strong>Framework:</strong> .NET MAUI</li>
     <li><strong>Linguagem:</strong> C#</li>
     <li><strong>Padrão de Arquitetura:</strong> MVVM (Model-View-ViewModel)</li>
   </ul>
 
-  <h2>Requisitos</h2>
+  <h2>📋Requisitos</h2>
   <p>Para executar o projeto, você precisa ter os seguintes itens instalados em sua máquina:</p>
   <ul>
     <li>Visual Studio 2022 (ou mais recente) com suporte para desenvolvimento de aplicativos móveis (.NET MAUI).</li>
   </ul>
 
-  <h2>Detalhes do Projeto</h2>
+  <h2>🔍 Detalhes do Projeto</h2>
   <p>O <strong>Rastrea</strong> foi desenvolvido para atender às necessidades de uma empresa de logística, permitindo que seus clientes rastreiem o status de seus pacotes de forma confiável. O aplicativo possui as seguintes implementações técnicas:</p>
   <ul>
     <li>Uma <strong>página inicial</strong> que permite aos clientes inserir o código de rastreamento do pacote.</li>
